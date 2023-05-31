@@ -5,6 +5,8 @@ import { getProduct, getProducts } from "../../api/products";
 
 import { REQUEST } from "../../constants/requests";
 
+import vehiclesData from "./../testData/vehicles.json";
+
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async ({ sort }, { signal, rejectWithValue }) => {
@@ -46,7 +48,7 @@ export const fetchProduct = createAsyncThunk(
 export const ProductsSlice = createSlice({
   name: "products",
   initialState: {
-    products: [],
+    products: vehiclesData.vehicles,
     product: {
       id: null,
       byId: {},
@@ -60,31 +62,30 @@ export const ProductsSlice = createSlice({
   },
   reducers: {
     filterProducts: (state, { payload }) => {
-      const { title, description, category } = payload;
+      const { id, year, model, color } = payload;
 
-      const filteredProducts = state.products.filter((product) => {
-        if (title.text) {
-          title.state = product.title
+      const filteredProduct = state.products.filter((product) => {
+        if (year.text) {
+          year.state = product.year
+            .toString()
             .toLowerCase()
-            .includes(title.text.toLowerCase());
+            .includes(year.text.toLowerCase());
         }
-        if (description.text) {
-          description.state = product.title
+        if (model.text) {
+          model.state = product.model
             .toLowerCase()
-            .includes(description.text.toLowerCase());
+            .includes(model.text.toLowerCase());
         }
-        if (category.text) {
-          category.state = product.title
+        if (color.text) {
+          color.state = product.color
             .toLowerCase()
-            .includes(category.text.toLowerCase());
+            .includes(color.text.toLowerCase());
         }
 
-        return title.state && description.state && category.state;
+        return year.state && model.state && color.state && id === product.id;
       });
 
-      console.log(filteredProducts);
-
-      state.products = filteredProducts;
+      state.product.byId[id] = filteredProduct;
     },
     setProductId: (state, { payload }) => {
       state.product.id = payload.id;

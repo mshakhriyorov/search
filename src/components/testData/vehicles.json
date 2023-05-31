@@ -1,0 +1,44 @@
+{
+  "vehicles": [
+    {
+      "id": "toyota",
+      "make": "Toyota",
+      "model": "Camry",
+      "year": 2020,
+      "color": "Silver",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/15/2019_Toyota_Camry_LE.jpg"
+    },
+    {
+      "id": "honda",
+      "make": "Honda",
+      "model": "Civic",
+      "year": 2019,
+      "color": "Red",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Honda_Civic_Hatchback_%28FK4%29.jpg"
+    },
+    {
+      "id": "ford",
+      "make": "Ford",
+      "model": "Mustang",
+      "year": 2021,
+      "color": "Blue",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/1f/2019_Ford_Mustang_GT_5.0_facelift.jpg"
+    },
+    {
+      "id": "chevrolet",
+      "make": "Chevrolet",
+      "model": "Tahoe",
+      "year": 2018,
+      "color": "Black",
+      "image": "https://media.chevrolet.com/content/media.suffiximg.w_550.maxw_550.maxh_367.jpg/content/dam/Media/images/US/Vehicles/Chevrolet/Trucks/Tahoe/2021/Product/2021-Chevrolet-Tahoe-HighCountry-062.jpg/1595615229957.jpg"
+    },
+    {
+      "id": "nissan",
+      "make": "Nissan",
+      "model": "Altima",
+      "year": 2022,
+      "color": "White",
+      "image": "https://cdn-ds.com/chrome/2023-Nissan-Altima-2-5-SL-White-Marsh-MD/seo/MzI0ODgwXk1lZGlhIEdhbGxlcnk/NIxYd_3Lpe7KxLcf1XGSQX99HVcVeVOK5y5xCI24QOuSAKvdzFAFztGxPoQZejeLvHdZML0zltddfqu-p1v44PtidXD5afjv2jfGIAJ8rMbNQTg9VFy9VfCCSgbxaoqUL_X7gAbt5_VgM-QiGxNT4FLoE3x4zKhChT0RMLUWw5T3mGOto0NYAg/w_1366/cc_2023NIC040030_02_1280_QAB.jpg"
+    }
+  ]
+}

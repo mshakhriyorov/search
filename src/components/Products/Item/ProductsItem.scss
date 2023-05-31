@@ -9,8 +9,11 @@
   &:hover {
     box-shadow: -2px -2px 8px rgba(0, 0, 0, 0.04),
       4px 4px 8px rgba(0, 0, 0, 0.08);
-    transform: scale(1.01);
     cursor: pointer;
+
+    .products-item__image > img {
+      transform: scale(1.05);
+    }
   }
 }
 
@@ -24,8 +27,8 @@
   left: 0;
   right: 0;
   background: rgba(255, 255, 255, 0.3);
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
   padding: 24px;
   display: flex;
   justify-content: space-between;
@@ -54,6 +57,7 @@
     max-width: 420px;
     max-height: 280px;
     min-height: 280px;
+    transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 }
 
@@ -92,15 +96,4 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.products-item__more {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-  color: #6941c6;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
