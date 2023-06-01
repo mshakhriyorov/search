@@ -134,7 +134,7 @@ export const Search = () => {
               />
             </div>
             <InputSearch
-              value={switchOn.year ? value.country : ""}
+              value={switchOn.country ? value.country : ""}
               setValue={(e) => setValue({ ...value, country: e.target.value })}
               label="Country"
               disabled={!switchOn.country}
