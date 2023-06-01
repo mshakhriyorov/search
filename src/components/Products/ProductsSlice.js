@@ -62,7 +62,7 @@ export const ProductsSlice = createSlice({
   },
   reducers: {
     filterProducts: (state, { payload }) => {
-      const { id, year, model, color } = payload;
+      const { id, year, model, color, country, driver, type } = payload;
 
       const filteredProduct = state.products.filter((product) => {
         if (year.text) {
@@ -81,14 +81,34 @@ export const ProductsSlice = createSlice({
             .toLowerCase()
             .includes(color.text.toLowerCase());
         }
+        if (country.text) {
+          country.state = product.country
+            .toLowerCase()
+            .includes(country.text.toLowerCase());
+        }
+        if (driver.text) {
+          driver.state = product.driver
+            .toLowerCase()
+            .includes(driver.text.toLowerCase());
+        }
+        if (type.text) {
+          type.state = product.type
+            .toLowerCase()
+            .includes(type.text.toLowerCase());
+        }
 
-        return year.state && model.state && color.state && id === product.id;
+        return (
+          id === product.id &&
+          year.state &&
+          model.state &&
+          color.state &&
+          country.state &&
+          driver.state &&
+          type.state
+        );
       });
 
       state.product.byId[id] = filteredProduct;
-    },
-    setProductId: (state, { payload }) => {
-      state.product.id = payload.id;
     },
   },
   extraReducers: {
@@ -158,6 +178,6 @@ export const ProductsSlice = createSlice({
   },
 });
 
-export const { filterProducts, setProductId } = ProductsSlice.actions;
+export const { filterProducts } = ProductsSlice.actions;
 
 export default ProductsSlice.reducer;

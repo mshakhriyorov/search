@@ -1,24 +1,27 @@
-.search {
+.search{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.search__top {
   padding: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 36px;
 }
 
 .search__input {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   gap: 12px;
-
-  &:first-child {
-    margin-left: 50px;
-  }
 }
 
 .search__inputs {
   display: grid;
   grid-template-columns: repeat(2, 2fr);
-  gap: 48px;
+  gap: 36px;
 }
 
 .search__switcher {
@@ -44,7 +47,10 @@
 
   &--year,
   &--model,
-  &--color {
+  &--color,
+  &--country,
+  &--type,
+  &--driver {
     background: linear-gradient(96.7deg, #7f56d9 0%, #6941c6 100%);
     border: 1px solid #f4f5f7;
     left: initial;
@@ -57,7 +63,7 @@
   justify-content: center;
   flex-direction: row-reverse;
   gap: 12px;
-  margin-top: 48px;
+  margin-top: 12px;
 }
 
 .search__button {
@@ -78,7 +84,8 @@
   }
 
   &--reset {
-    background: #b42318;
-    border: 1px solid #b42318;
+    color: #344054;
+    background: #ffffff;
+    border: 1px solid #d0d5dd;
   }
 }
