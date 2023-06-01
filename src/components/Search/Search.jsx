@@ -195,7 +195,9 @@ export const Search = () => {
         </div>
         <div className="search__buttons">
           <button
-            className="search__button search__button--search"
+            className={cn("search__button search__button--search", {
+              "search__button search__button--disabled" : !id
+            })}
             onClick={handleFetchProducts}
           >
             Search

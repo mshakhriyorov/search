@@ -11,6 +11,7 @@ import { InputResult } from "../../Input/Result";
 import { NotFound } from "../../NotFound";
 
 import { filterProducts } from "../ProductsSlice";
+import { ProductsCard } from "../Card";
 
 export const ProductsItem = () => {
   const { pathname, search } = useLocation();
@@ -141,51 +142,55 @@ export const ProductsItem = () => {
               }) =>
                 id === vehicleId && (
                   <div className="products-item" key={id} ref={itemRef}>
-                    <div className="products-item__image-box">
-                      <div className="products-item__image">
-                        <img src={image} alt={id} />
-                      </div>
-                      <div className="products-item__image-bottom">
-                        <div className="products-item__title">
-                          Nomi
-                          <div className="products-item__title-id">
-                            <span>{make}</span>
+                    <div className="products-item__box">
+                      <div className="products-item__image-box">
+                        <div className="products-item__image">
+                          <img src={image} alt={id} />
+                        </div>
+                        <div className="products-item__image-bottom">
+                          <div className="products-item__title">
+                            Nomi
+                            <div className="products-item__title-id">
+                              <span>{make}</span>
+                            </div>
                           </div>
                         </div>
                       </div>
+                      <div className="products-item__results">
+                        <InputResult
+                          label="Model"
+                          result={model}
+                          blur={!value.model}
+                        />
+                        <InputResult
+                          label="Color"
+                          result={color}
+                          blur={!value.color}
+                        />
+                        <InputResult
+                          label="Year"
+                          result={year}
+                          blur={!value.year}
+                        />
+                        <InputResult
+                          label="Country"
+                          result={country.name}
+                          blur={!value.country}
+                        />
+                        <InputResult
+                          label="Driver"
+                          result={driver.name}
+                          blur={!value.driver}
+                        />
+                        <InputResult
+                          label="Type"
+                          result={type}
+                          blur={!value.type}
+                        />
+                      </div>
                     </div>
-                    <div className="products-item__results">
-                      <InputResult
-                        label="Model"
-                        result={model}
-                        blur={!value.model}
-                      />
-                      <InputResult
-                        label="Color"
-                        result={color}
-                        blur={!value.color}
-                      />
-                      <InputResult
-                        label="Year"
-                        result={year}
-                        blur={!value.year}
-                      />
-                      <InputResult
-                        label="Country"
-                        result={country}
-                        blur={!value.country}
-                      />
-                      <InputResult
-                        label="Driver"
-                        result={driver}
-                        blur={!value.driver}
-                      />
-                      <InputResult
-                        label="Type"
-                        result={type}
-                        blur={!value.type}
-                      />
-                    </div>
+
+                    <ProductsCard value={country} />
 
                     <button
                       className="products-item__download"

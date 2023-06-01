@@ -82,12 +82,12 @@ export const ProductsSlice = createSlice({
             .includes(color.text.toLowerCase());
         }
         if (country.text) {
-          country.state = product.country
+          country.state = product.country.name
             .toLowerCase()
             .includes(country.text.toLowerCase());
         }
         if (driver.text) {
-          driver.state = product.driver
+          driver.state = product.driver.username
             .toLowerCase()
             .includes(driver.text.toLowerCase());
         }
