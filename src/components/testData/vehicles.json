@@ -343,7 +343,7 @@
         "unMember": true,
         "currencies": {},
         "idd": {},
-        "capital": "Tashkent",
+        "capital": ["Tashkent"],
         "altSpellings": [
           "UZ",
           "Republic of Uzbekistan",
@@ -569,7 +569,7 @@
         "unMember": true,
         "currencies": {},
         "idd": {},
-        "capital": "Tashkent",
+        "capital": ["Tashkent"],
         "altSpellings": [
           "UZ",
           "Republic of Uzbekistan",
@@ -674,7 +674,7 @@
         "unMember": true,
         "currencies": {},
         "idd": {},
-        "capital": "Tashkent",
+        "capital": ["Tashkent"],
         "altSpellings": [
           "UZ",
           "Republic of Uzbekistan",
@@ -779,7 +779,7 @@
         "unMember": true,
         "currencies": {},
         "idd": {},
-        "capital": "Tashkent",
+        "capital": ["Tashkent"],
         "altSpellings": [
           "UZ",
           "Republic of Uzbekistan",

@@ -1,4 +1,5 @@
-.input-result {
+.input-result,
+.input-result__result-input {
   max-width: 250px;
   display: flex;
   background: #ffffff;
@@ -13,6 +14,8 @@
 .input-result__label {
   padding: 8px 12px;
   color: #475467;
+  font-weight: 600;
+  text-transform: capitalize;
 }
 
 .input-result__result {
@@ -21,6 +24,11 @@
   width: 100%;
   color: #101828;
   position: relative;
+}
+
+.input-result__result-input {
+  border: none;
+  width: 100%;
 }
 
 .input-result__blur {

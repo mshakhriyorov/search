@@ -1,4 +1,8 @@
 .products-item {
+  position: relative;
+}
+
+.products-item__container {
   display: flex;
   gap: 48px;
   align-items: center;
@@ -88,7 +92,7 @@
 .products-item__download {
   position: absolute;
   bottom: 0;
-  right: -200px;
+  right: 0;
   padding: 12px;
   box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
   border-radius: 8px;
@@ -98,5 +102,16 @@
   color: #ffffff;
   background: #6941c6;
   border: 1px solid #6941c6;
+  width: 250px;
   cursor: pointer;
+}
+
+.products-item__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.products-item__card {
+  z-index: 1;
 }

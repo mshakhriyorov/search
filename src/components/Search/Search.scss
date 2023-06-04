@@ -1,4 +1,4 @@
-.search{
+.search {
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -16,6 +16,16 @@
   display: flex;
   align-items: flex-end;
   gap: 12px;
+
+  &--id {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+.search__input-validation {
+  color: red;
 }
 
 .search__inputs {
@@ -89,9 +99,7 @@
     border: 1px solid #d0d5dd;
   }
 
-  &--disabled{
+  &--disabled {
     background-color: #344054;
   }
 }
-
-

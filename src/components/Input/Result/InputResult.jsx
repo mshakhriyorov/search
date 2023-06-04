@@ -1,15 +1,31 @@
-import React from "react";
+import React, { forwardRef, memo } from "react";
 
 import "./InputResult.scss";
 
-export const InputResult = ({ result, label, blur }) => {
-  return (
-    <div className="input-result">
-      <div className="input-result__label">{label}</div>
-      <div className="input-result__result">
-        {result}
-        {blur && <div className="input-result__blur" />}
+export const InputResult = memo(
+  forwardRef(({ result, label, blur }, ref) => {
+    return (
+      <div
+        className="input-result"
+        ref={ref}
+        title={
+          blur
+            ? "You need to insert related prompt into search input in order to see this field"
+            : `${result}`
+        }
+      >
+        <div className="input-result__label">{label}</div>
+        <div className="input-result__result">
+          <input
+            type={blur ? "password" : "text"}
+            value={result}
+            onChange={() => {}}
+            disabled
+            className="input-result__result-input"
+          />
+          {blur && <div className="input-result__blur" />}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  })
+);

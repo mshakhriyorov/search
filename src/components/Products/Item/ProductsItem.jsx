@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ContentLoader from "react-content-loader";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import Xarrow from "react-xarrows";
 
 import "./ProductsItem.scss";
 
@@ -16,6 +17,10 @@ import { ProductsCard } from "../Card";
 export const ProductsItem = () => {
   const { pathname, search } = useLocation();
   const itemRef = useRef();
+  const countryCardRef = useRef();
+  const countryInputRef = useRef();
+  const driverCardRef = useRef();
+  const driverInputRef = useRef();
   const dispatch = useDispatch();
   const [value, setValue] = useState({
     year: "",
@@ -141,62 +146,94 @@ export const ProductsItem = () => {
                 type,
               }) =>
                 id === vehicleId && (
-                  <div className="products-item" key={id} ref={itemRef}>
-                    <div className="products-item__box">
-                      <div className="products-item__image-box">
-                        <div className="products-item__image">
-                          <img src={image} alt={id} />
-                        </div>
-                        <div className="products-item__image-bottom">
-                          <div className="products-item__title">
-                            Nomi
-                            <div className="products-item__title-id">
-                              <span>{make}</span>
+                  <div key={id} className="products-item">
+                    <div className="products-item__container" ref={itemRef}>
+                      <div className="products-item__box">
+                        <div className="products-item__image-box">
+                          <div className="products-item__image">
+                            <img src={image} alt={id} />
+                          </div>
+                          <div className="products-item__image-bottom">
+                            <div className="products-item__title">
+                              Name
+                              <div className="products-item__title-id">
+                                <span>{make}</span>
+                              </div>
                             </div>
                           </div>
                         </div>
+                        <div className="products-item__results">
+                          <InputResult
+                            label="Model"
+                            result={model}
+                            blur={!value.model}
+                          />
+                          <InputResult
+                            label="Color"
+                            result={color}
+                            blur={!value.color}
+                          />
+                          <InputResult
+                            label="Year"
+                            result={year}
+                            blur={!value.year}
+                          />
+                          <InputResult
+                            label="Country"
+                            result={country.name}
+                            blur={!value.country}
+                            ref={countryInputRef}
+                          />
+                          <InputResult
+                            label="Type"
+                            result={type}
+                            blur={!value.type}
+                          />
+                          <InputResult
+                            label="Driver"
+                            result={driver.name}
+                            blur={!value.driver}
+                            ref={driverInputRef}
+                          />
+                        </div>
                       </div>
-                      <div className="products-item__results">
-                        <InputResult
-                          label="Model"
-                          result={model}
-                          blur={!value.model}
-                        />
-                        <InputResult
-                          label="Color"
-                          result={color}
-                          blur={!value.color}
-                        />
-                        <InputResult
-                          label="Year"
-                          result={year}
-                          blur={!value.year}
-                        />
-                        <InputResult
-                          label="Country"
-                          result={country.name}
-                          blur={!value.country}
-                        />
-                        <InputResult
-                          label="Driver"
-                          result={driver.name}
-                          blur={!value.driver}
-                        />
-                        <InputResult
-                          label="Type"
-                          result={type}
-                          blur={!value.type}
-                        />
+
+                      <div className="products-item__cards">
+                        <span className="products-item__card">
+                          <ProductsCard
+                            value={country}
+                            variant="country"
+                            blur={!value.country}
+                            ref={countryCardRef}
+                          />
+                          <Xarrow
+                            start={countryInputRef}
+                            end={countryCardRef}
+                            color="#6941c6"
+                          />
+                        </span>
+
+                        <span className="products-item__card">
+                          <ProductsCard
+                            value={driver}
+                            variant="driver"
+                            blur={!value.driver}
+                            ref={driverCardRef}
+                          />
+                          <Xarrow
+                            start={driverInputRef}
+                            end={driverCardRef}
+                            color="#6941c6"
+                          />
+                        </span>
                       </div>
                     </div>
-
-                    <ProductsCard value={country} />
 
                     <button
                       className="products-item__download"
                       onClick={downloadAsPDF}
                     >
-                      Yuklab olish || PDF
+                      Download
                     </button>
                   </div>
                 )

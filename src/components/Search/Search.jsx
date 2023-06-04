@@ -29,12 +29,14 @@ export const Search = () => {
   const [id, setId] = useState("");
   const [value, setValue] = useState(INITIAL_VALUES);
   const [switchOn, setSwithOn] = useState(INITIAL_SWITCHERS);
+  const [isValidation, setIsValidation] = useState(false);
   const searchPath = createSearchPath(value);
 
   const clearSearch = () => {
     setId("");
     setValue(INITIAL_VALUES);
     setSwithOn(INITIAL_SWITCHERS);
+    setIsValidation(false);
   };
 
   const handleFetchProducts = () => {
@@ -44,6 +46,9 @@ export const Search = () => {
       } else {
         window.open(`/product/${id}`, "_blank", "noreferrer");
       }
+      setIsValidation(false);
+    } else {
+      setIsValidation(true);
     }
   };
 
@@ -185,18 +190,22 @@ export const Search = () => {
             />
           </div>
         </div>
-        <div className="search__input">
+        <div className="search__input--id">
           <InputSearch
             value={id}
             setValue={(e) => setId(e.target.value)}
-            label="Id"
-            isRequired
+            label="id"
           />
+          {isValidation && (
+            <span className="search__input-validation">
+              Please, enter id. It's required
+            </span>
+          )}
         </div>
         <div className="search__buttons">
           <button
             className={cn("search__button search__button--search", {
-              "search__button search__button--disabled" : !id
+              "search__button search__button--disabled": !id,
             })}
             onClick={handleFetchProducts}
           >

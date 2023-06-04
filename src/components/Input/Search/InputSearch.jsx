@@ -7,18 +7,22 @@ export const InputSearch = ({
   setValue,
   disabled,
   label,
-  isRequired,
   type,
 }) => {
   return (
     <div className="input-search">
-      <div className="input-search__label">{label}</div>
+      <div className="input-search__label">
+        {label}
+        {label === "id" && (
+          <span className="input-search__label--asterisk">*</span>
+        )}
+      </div>
       <input
         className="input-search__input"
         value={value}
         onChange={setValue}
         disabled={disabled}
-        required={isRequired}
+        required={label === 'id'}
         type={type ? "number" : "text"}
       />
     </div>
